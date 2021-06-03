@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import BrainStorm from "./logic/BrainStorm";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const test = async () => {
+		let aBrainStorm = new BrainStorm();
+		await aBrainStorm.Init("nerfilio", "school tests");
+		await aBrainStorm.AddIdea("school shooting run away");
+		let id = await aBrainStorm.AddIdea("old");
+		aBrainStorm.DeleteIdea(id);
+	};
+
+	return (
+		<div className="App">
+			<button onClick={test}>Test</button>
+		</div>
+	);
 }
 
 export default App;
