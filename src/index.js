@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 
 import { initFirebase } from "./initFirebase";
+import Routes from "./routes";
 
 initFirebase();
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<Routes />
 	</React.StrictMode>,
 	document.getElementById("root")
 );
