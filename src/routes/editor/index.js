@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import IdeaInput from "../../components/IdeaInput";
+import IdeaItemList from "../../components/IdeaItemList";
 import BrainStorm from "../../logic/BrainStorm";
 
 const EditorRoute = () => {
@@ -26,29 +28,16 @@ const EditorRoute = () => {
 		});
 	}, []);
 
-	//Add ideas
-	const [input, setInput] = useState("");
-	const addIdea = () => {
-		if (input.length === 0) {
-			alert("Must be filled");
-			return;
-		}
-		bs.AddIdea(input).then(() => {
-			setInput("");
-		});
-	};
-
 	return (
 		<div>
-			<div>
-				<input value={input} onChange={(e) => setInput(e.target.value)} />
-				<button onClick={addIdea}>Add</button>
-			</div>
+			<IdeaInput bs={bs} />
 			<div>
 				<div>{data.Data.name}</div>
 				<div>
 					{data.Data.children != undefined &&
-						Object.values(data.Data.children).map((c) => <div>{c.name}</div>)}
+						Object.values(data.Data.children).map((c) => (
+							<IdeaItemList bs={bs} name={c.name} id={c.id} />
+						))}
 				</div>
 			</div>
 		</div>
