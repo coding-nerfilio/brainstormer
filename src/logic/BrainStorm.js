@@ -29,6 +29,7 @@ class BrainStorm {
 		await firebase.database().ref("data").child(id).set(brainStorm);
 
 		this.ref = "data/" + id;
+		return id;
 	};
 
 	AddIdea = async (name) => {
