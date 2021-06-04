@@ -4,9 +4,16 @@ import "firebase/database";
 class BrainStorm {
 	ref = null;
 
-	constructor(ref) {
-		this.ref = ref;
+	constructor(id) {
+		if (id !== undefined) {
+			this.ref = "data/" + id;
+		}
 	}
+
+	itExists = async () =>
+		this.ref == null
+			? false
+			: (await firebase.database().ref(this.ref).once("value")).exists();
 
 	Init = async (user, name) => {
 		const brainStorm = {
