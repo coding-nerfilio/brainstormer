@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import IdeaInput from "../../components/IdeaInput";
-import IdeaItemList from "../../components/IdeaItemList";
+import VisualizeBrainStorm from "../../components/VisualizeBrainStorm";
 
 import useEditor from "./useEditor";
 
@@ -10,15 +10,7 @@ const EditorRoute = () => {
 	return (
 		<div>
 			<IdeaInput bs={bs} />
-			<div>
-				<div>{data.Data.name}</div>
-				<div>
-					{data.Data.children != undefined &&
-						Object.values(data.Data.children).map((c) => (
-							<IdeaItemList bs={bs} name={c.name} id={c.id} />
-						))}
-				</div>
-			</div>
+			<VisualizeBrainStorm bs={bs} data={data} />
 		</div>
 	);
 };
