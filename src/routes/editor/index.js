@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-
 import BrainStorm from "../../logic/BrainStorm";
 
 const EditorRoute = () => {
@@ -9,11 +8,22 @@ const EditorRoute = () => {
 
 	const [bs, setBS] = useState(null);
 
-	//Check if brainstorm exists
+	const [data, setData] = useState({
+		Members: [],
+		Data: { name: "", children: {} },
+	});
+
+	//Check if brainstorm exists, if exists fetch data
 	useEffect(() => {
 		let BS = new BrainStorm(id);
 		setBS(BS);
-		BS.itExists().then((e) => !e && history.push("/invalid"));
+		BS.itExists().then((e) => {
+			if (!e) {
+				history.push("/invalid");
+			} else {
+				BS.Fetch(setData);
+			}
+		});
 	}, []);
 
 	//Add ideas
@@ -33,6 +43,13 @@ const EditorRoute = () => {
 			<div>
 				<input value={input} onChange={(e) => setInput(e.target.value)} />
 				<button onClick={addIdea}>Add</button>
+			</div>
+			<div>
+				<div>{data.Data.name}</div>
+				<div>
+					{data.Data.children != undefined &&
+						Object.values(data.Data.children).map((c) => <div>{c.name}</div>)}
+				</div>
 			</div>
 		</div>
 	);

@@ -66,6 +66,16 @@ class BrainStorm {
 			.child(id)
 			.remove();
 	};
+
+	Fetch = (dispatcher) => {
+		firebase
+			.database()
+			.ref(this.ref)
+			.on("value", (snapshot) => {
+				let state = snapshot.val();
+				dispatcher(state);
+			});
+	};
 }
 
 export default BrainStorm;
