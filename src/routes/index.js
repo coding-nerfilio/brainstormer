@@ -13,7 +13,7 @@ const Routes = () => {
 				<Route path="/invalid">
 					<InvalidIdRoute />
 				</Route>
-				<Route path="/">
+				<Route path="/" exact>
 					<CreateFormRoute />
 				</Route>
 				<Route path="*">
