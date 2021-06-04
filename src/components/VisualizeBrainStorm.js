@@ -5,7 +5,7 @@ const VisualizeBrainStorm = ({ bs, data }) => {
 		<div>
 			<div>{data.Data.name}</div>
 			<div>
-				{data.Data.children != undefined &&
+				{data.Data.children !== undefined &&
 					Object.values(data.Data.children).map((c) => (
 						<IdeaItemList bs={bs} name={c.name} id={c.id} />
 					))}

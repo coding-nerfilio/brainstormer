@@ -8,7 +8,7 @@ const CreateFormRoute = () => {
 	const history = useHistory();
 
 	const CreateBrainStorm = async () => {
-		if (name.length == 0 || user.length == 0) {
+		if (name.length === 0 || user.length === 0) {
 			alert("Fill all fields");
 			return;
 		}

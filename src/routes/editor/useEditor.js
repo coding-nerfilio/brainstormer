@@ -23,7 +23,7 @@ const useEditor = (id) => {
 				BS.Fetch(setData);
 			}
 		});
-	}, []);
+	}, [history, id]);
 
 	return {
 		bs,
