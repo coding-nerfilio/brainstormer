@@ -1,32 +1,11 @@
-import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { useParams } from "react-router";
 import IdeaInput from "../../components/IdeaInput";
 import IdeaItemList from "../../components/IdeaItemList";
-import BrainStorm from "../../logic/BrainStorm";
+
+import useEditor from "./useEditor";
 
 const EditorRoute = () => {
-	const { id } = useParams();
-	const history = useHistory();
-
-	const [bs, setBS] = useState(null);
-
-	const [data, setData] = useState({
-		Members: [],
-		Data: { name: "", children: {} },
-	});
-
-	//Check if brainstorm exists, if exists fetch data
-	useEffect(() => {
-		let BS = new BrainStorm(id);
-		setBS(BS);
-		BS.itExists().then((e) => {
-			if (!e) {
-				history.push("/invalid");
-			} else {
-				BS.Fetch(setData);
-			}
-		});
-	}, []);
+	const { bs, data } = useEditor(useParams().id);
 
 	return (
 		<div>
