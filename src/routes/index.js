@@ -15,22 +15,24 @@ const Routes = () => {
 			}}
 		>
 			<Header />
-			<Router>
-				<Switch>
-					<Route path="/editor/:id">
-						<EditorRoute />
-					</Route>
-					<Route path="/invalid">
-						<InvalidIdRoute />
-					</Route>
-					<Route path="/" exact>
-						<CreateFormRoute />
-					</Route>
-					<Route path="*">
-						<InvalidRoute />
-					</Route>
-				</Switch>
-			</Router>
+			<div style={{ height: "100%", width: "100%" }}>
+				<Router>
+					<Switch>
+						<Route path="/editor/:id">
+							<EditorRoute />
+						</Route>
+						<Route path="/invalid">
+							<InvalidIdRoute />
+						</Route>
+						<Route path="/" exact>
+							<CreateFormRoute />
+						</Route>
+						<Route path="*">
+							<InvalidRoute />
+						</Route>
+					</Switch>
+				</Router>
+			</div>
 		</div>
 	);
 };
