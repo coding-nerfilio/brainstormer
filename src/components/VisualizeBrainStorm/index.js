@@ -1,4 +1,4 @@
-import IdeaItemList from "./IdeaItemList";
+import IdeaItemList from "../IdeaItemList";
 
 const VisualizeBrainStorm = ({ bs, data }) => {
 	return (
