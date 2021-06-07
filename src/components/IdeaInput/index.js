@@ -1,7 +1,7 @@
 import { useState } from "react";
+import "./style.css";
 
 const IdeaInput = ({ bs }) => {
-	//Add ideas
 	const [input, setInput] = useState("");
 	const addIdea = () => {
 		if (input.length === 0) {
@@ -13,9 +13,15 @@ const IdeaInput = ({ bs }) => {
 		});
 	};
 	return (
-		<div>
-			<input value={input} onChange={(e) => setInput(e.target.value)} />
-			<button onClick={addIdea}>Add</button>
+		<div className="idea-input-container">
+			<input
+				className="idea-input-field"
+				value={input}
+				onChange={(e) => setInput(e.target.value)}
+			/>
+			<button className="idea-input-button" onClick={addIdea}>
+				Add
+			</button>
 		</div>
 	);
 };
