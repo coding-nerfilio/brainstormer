@@ -8,7 +8,16 @@ const EditorRoute = () => {
 	const { bs, data } = useEditor(useParams().id);
 
 	return (
-		<div>
+		<div
+			style={{
+				flex: 1,
+				alignSelf: "stretch",
+				display: "flex",
+				flexDirection: "column",
+				paddingLeft: "10px",
+				paddingRight: "10px",
+			}}
+		>
 			<IdeaInput bs={bs} />
 			<VisualizeBrainStorm bs={bs} data={data} />
 		</div>

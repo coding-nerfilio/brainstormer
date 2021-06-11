@@ -1,0 +1,23 @@
+.visualize-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	flex: 1;
+	align-self: stretch;
+}
+
+.idea-item-container {
+	border-left: 1px solid black;
+	height: fit-content;
+}
+
+.main-idea-container {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: inherit;
+}
+
+.idea-item-list {
+	display: flex;
+}

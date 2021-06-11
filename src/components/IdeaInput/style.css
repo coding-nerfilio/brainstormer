@@ -1,13 +1,14 @@
 .idea-input-container {
-	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	padding-top: 10px;
+	margin-bottom: 10px;
 }
 
 .idea-input-field {
-	width: 82%;
+	width: 80%;
 }
 
 .idea-input-button {
-	width: 15%;
+	width: 19%;
 }
