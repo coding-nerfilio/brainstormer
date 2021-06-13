@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddIcon from "../../assets/add-circle-outline.svg";
 import "./style.css";
 
 const IdeaInput = ({ bs }) => {
@@ -19,8 +20,8 @@ const IdeaInput = ({ bs }) => {
 				value={input}
 				onChange={(e) => setInput(e.target.value)}
 			/>
-			<button className="idea-input-button" onClick={addIdea}>
-				Add
+			<button className="idea-input-button-container" onClick={addIdea}>
+				<img src={AddIcon} alt="Add" className="idea-input-button" />
 			</button>
 		</div>
 	);

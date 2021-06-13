@@ -9,6 +9,11 @@
 	width: 80%;
 }
 
-.idea-input-button {
+.idea-input-button-container {
 	width: 19%;
+}
+
+.idea-input-button {
+	height: 32px;
+	width: 32px;
 }
