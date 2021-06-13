@@ -1,7 +1,11 @@
 .header {
-	background-color: #2a044e;
+	background-color: rgb(56, 16, 201);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 10vh;
+	height: 7vh;
+}
+
+.icon {
+	height: inherit;
 }
